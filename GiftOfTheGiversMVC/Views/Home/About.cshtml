@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "About Us";
+}
+
+<div class="container my-5">
+    <!-- HERO IMAGE -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <img src="~/images/pages/about-hero.jpg" alt="Humanitarian aid"
+                 class="img-fluid rounded shadow"
+                 style="width: 100%; max-height: 400px; object-fit: cover;" />
+        </div>
+    </div>
+
+    <div class="text-center mb-4">
+        <h1 class="display-4">About Gift of the Givers</h1>
+        <p class="lead">A beacon of hope in times of crisis</p>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <p>
+                The Gift of the Givers Foundation stands as a beacon of hope in times of crisis,
+                dedicated to providing swift and effective aid to communities struck by natural
+                disasters and emergencies in South Africa and beyond.
+            </p>
+            <p>
+                Established in response to the growing need for organised relief efforts, the
+                foundation operates on the principles of compassion, efficiency, and resilience.
+                With a diverse team of volunteers and experts, we strive to make a tangible
+                difference in the lives of those affected by adversity.
+            </p>
+
+            <h4 class="mt-4">Our Mission</h4>
+            <ul>
+                <li>Provide immediate relief to disaster-affected communities</li>
+                <li>Coordinate volunteers effectively during emergencies</li>
+                <li>Ensure transparent and accountable donation management</li>
+                <li>Build resilient communities through sustainable support</li>
+            </ul>
+
+            <h4 class="mt-4">Our Values</h4>
+            <div class="row mt-3">
+                <div class="col-md-4 text-center mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="text-danger">❤️ Compassion</h5>
+                            <p class="small">We care deeply about those we serve</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="text-danger">⚡ Efficiency</h5>
+                            <p class="small">We act quickly when disaster strikes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center mb-3">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="text-danger">💪 Resilience</h5>
+                            <p class="small">We persevere until communities recover</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a asp-controller="Donation" asp-action="Index"
+                   class="btn text-white btn-lg" style="background-color: #8B0000;">
+                    ❤️ Support Our Work
+                </a>
+                <a asp-controller="Volunteer" asp-action="Register"
+                   class="btn btn-outline-dark btn-lg ms-2">
+                    🤝 Join Us
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

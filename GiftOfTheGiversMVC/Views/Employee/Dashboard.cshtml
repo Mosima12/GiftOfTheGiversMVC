@@ -1,0 +1,165 @@
+﻿@{
+    ViewData["Title"] = "Employee Dashboard";
+}
+
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Employee Dashboard</h1>
+        <span class="badge text-white fs-6 px-3 py-2" style="background-color: #8B0000;">
+            👤 @User.Identity?.Name
+        </span>
+    </div>
+
+    <hr />
+
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            @TempData["Message"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show">
+            @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header text-white" style="background-color: #8B0000;">
+                    <h5 class="mb-0">📝 Post Project Update</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="PostUpdate" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" name="title" id="title" class="form-control"
+                                   required placeholder="Enter update title" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="content" class="form-label">Content</label>
+                            <textarea name="content" id="content" class="form-control"
+                                      rows="4" required
+                                      placeholder="Enter update details"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn text-white"
+                                style="background-color: #8B0000;">
+                            Post Update
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">👥 Volunteer Sign-Ups</h5>
+                </div>
+                <div class="card-body">
+                    @if (ViewBag.VolunteerSignups is List<GiftOfTheGiversMVC.Controllers.VolunteerRegistration> volunteers
+                         && volunteers.Count > 0)
+                    {
+                        <ul class="list-group list-group-flush">
+                            @foreach (var v in volunteers)
+                            {
+                                <li class="list-group-item">
+                                    <strong>@v.FullName</strong>
+                                    <span class="text-muted">(@v.Email)</span>
+                                    <br />
+                                    <small>
+                                        <strong>Skills:</strong>
+                                        @(v.Skills?.Count > 0 ? string.Join(", ", v.Skills) : "None specified")
+                                    </small>
+                                    @if (!string.IsNullOrEmpty(v.Availability))
+                                    {
+                                        <br />
+                                        <small><strong>Availability:</strong> @v.Availability</small>
+                                    }
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p class="text-muted mb-0">No volunteer sign-ups yet.</p>
+                    }
+                </div>
+            </div>
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-header text-white" style="background-color: #FF8C00;">
+                    <h5 class="mb-0">📬 Contact Messages</h5>
+                </div>
+                <div class="card-body">
+                    @{
+                        var messages = GiftOfTheGiversMVC.Controllers.HomeController.GetMessages();
+                    }
+                    @if (messages != null && messages.Count > 0)
+                    {
+                        <ul class="list-group list-group-flush">
+                            @foreach (var msg in messages.OrderByDescending(m => m.SubmittedAt).Take(5))
+                            {
+                                <li class="list-group-item">
+                                    <strong>@msg.Name</strong>
+                                    <small class="text-muted">(@msg.Email)</small>
+                                    <br />
+                                    <small><strong>@msg.Subject</strong></small>
+                                    <br />
+                                    <small class="text-muted">@msg.Message</small>
+                                    <br />
+                                    <small class="text-secondary">
+                                        @msg.SubmittedAt.ToString("dd MMM yyyy HH:mm")
+                                    </small>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p class="text-muted mb-0">No messages yet.</p>
+                    }
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">📢 Recent Project Updates</h5>
+                </div>
+                <div class="card-body">
+                    @if (ViewBag.ProjectUpdates is List<GiftOfTheGiversMVC.Controllers.ProjectUpdate> updates
+                         && updates.Count > 0)
+                    {
+                        <ul class="list-group list-group-flush">
+                            @foreach (var update in updates)
+                            {
+                                <li class="list-group-item">
+                                    <strong>@update.Title</strong>
+                                    <br />
+                                    <small>@update.Content</small>
+                                    <br />
+                                    <small class="text-muted">
+                                        Posted: @update.PostedDate.ToString("dd MMM yyyy HH:mm")
+                                    </small>
+                                </li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <p class="text-muted mb-0">No updates yet.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

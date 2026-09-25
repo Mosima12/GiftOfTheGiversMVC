@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Donation Confirmation";
+}
+
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h1 class="text-success">✓ Thank You for Your Donation!</h1>
+        <p class="lead">Your generosity makes a difference.</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header text-white" style="background-color: #8B0000;">
+                    <h4 class="mb-0">Donation Receipt</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            <td><strong>Amount:</strong></td>
+                            <td>@ViewBag.Amount</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Type:</strong></td>
+                            <td>@(ViewBag.IsRecurring ? "Recurring Monthly" : "One-Time")</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Date:</strong></td>
+                            <td>@ViewBag.DonationDate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Anonymous:</strong></td>
+                            <td>@(ViewBag.IsAnonymous ? "Yes" : "No")</td>
+                        </tr>
+                    </table>
+
+                    <div class="alert alert-info">
+                        <h6>Tax Certificate Number:</h6>
+                        <h4 class="text-primary mb-0">@ViewBag.CertificateNumber</h4>
+                        <small>This is a placeholder tax certificate for demonstration purposes.</small>
+                    </div>
+
+                    <a href="@Url.Action("TaxCertificate", "Donation",
+                             new { certificateNumber = ViewBag.CertificateNumber })"
+                       class="btn w-100 text-white" style="background-color: #8B0000;">
+                        View Tax Certificate
+                    </a>
+
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary w-100 mt-2">
+                        Return Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

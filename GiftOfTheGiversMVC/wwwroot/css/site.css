@@ -1,0 +1,119 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+/* ============================================
+   GIFT OF THE GIVERS - CUSTOM STYLES
+   ============================================ */
+
+:root {
+    --gotg-red: #8B0000;
+    --gotg-red-dark: #6B0000;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Navbar hover effects */
+.navbar-nav .nav-link {
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+
+/* Card hover effects */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+
+/* Project card image zoom */
+.project-card {
+    overflow: hidden;
+}
+
+    .project-card img {
+        transition: transform 0.3s ease;
+    }
+
+    .project-card:hover img {
+        transform: scale(1.05);
+    }
+
+/* Button hover */
+.btn {
+    transition: all 0.2s ease;
+}
+
+    .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+/* Form focus color */
+.form-control:focus, .form-select:focus {
+    border-color: #8B0000;
+    box-shadow: 0 0 0 0.2rem rgba(139, 0, 0, 0.25);
+}
+
+/* Link styling */
+a {
+    transition: color 0.2s ease;
+}
+
+/* Hero section */
+.hero-section {
+    background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        background-attachment: scroll;
+        min-height: 400px !important;
+    }
+}
+
+/* Progress bars */
+.progress {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Footer links hover */
+footer a {
+    transition: opacity 0.2s ease;
+}
+
+    footer a:hover {
+        opacity: 0.8;
+        text-decoration: underline !important;
+    }

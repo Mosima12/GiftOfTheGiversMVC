@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Page Not Found";
+}
+
+<div class="container my-5">
+    <div class="text-center py-5">
+        <h1 class="display-1 fw-bold" style="color: #8B0000;">404</h1>
+        <h2 class="fw-bold mb-3">Page Not Found</h2>
+        <p class="lead text-muted">
+            The page you're looking for doesn't exist or has been moved.
+        </p>
+        <div class="mt-4">
+            <a asp-controller="Home" asp-action="Index"
+               class="btn text-white btn-lg" style="background-color: #8B0000;">
+                🏠 Return Home
+            </a>
+            <a asp-controller="Projects" asp-action="Index"
+               class="btn btn-outline-dark btn-lg ms-2">
+                📋 View Projects
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="container my-5">
+    <h1 class="text-center mb-4">Contact Us</h1>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            ✅ @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show">
+            ⚠️ @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <h4>Get in Touch</h4>
+            <p>We would love to hear from you. Reach out to us for any inquiries.</p>
+
+            <address>
+                <strong>Gift of the Givers Foundation</strong><br />
+                123 Relief Road<br />
+                Johannesburg, 2001<br />
+                South Africa<br />
+                <abbr title="Phone">P:</abbr> +27 11 123 4567
+            </address>
+
+            <address>
+                <strong>Email:</strong>
+                <a href="mailto:info@giftofthegivers.org">info@giftofthegivers.org</a>
+            </address>
+
+            <img src="~/images/pages/donate-hero.jpg" alt="Charity donation"
+                 class="img-fluid rounded shadow mt-3"
+                 style="width: 100%; max-height: 250px; object-fit: cover;" />
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4>Send Us a Message</h4>
+                    <form asp-action="SubmitContact" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <div class="mb-3">
+                            <label class="form-label">Your Name *</label>
+                            <input type="text" name="name" class="form-control"
+                                   required placeholder="Enter your name" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Your Email *</label>
+                            <input type="email" name="email" class="form-control"
+                                   required placeholder="you@example.com" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Subject</label>
+                            <input type="text" name="subject" class="form-control"
+                                   placeholder="Message subject" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Message *</label>
+                            <textarea name="message" class="form-control" rows="5"
+                                      required placeholder="Your message..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn text-white w-100"
+                                style="background-color: #8B0000;">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

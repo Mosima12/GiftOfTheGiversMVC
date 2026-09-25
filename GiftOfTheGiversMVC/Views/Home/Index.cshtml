@@ -1,0 +1,159 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- HERO SECTION -->
+<div class="hero-section text-white text-center d-flex align-items-center"
+     style="background: linear-gradient(rgba(139, 0, 0, 0.65), rgba(139, 0, 0, 0.75)),
+            url('/images/hero/hero-bg.jpg') center/cover no-repeat;
+            min-height: 550px;">
+    <div class="container">
+        <h1 class="display-3 fw-bold mb-3">When Disaster Strikes, We Respond</h1>
+        <p class="lead fs-4 mb-4">
+            Providing swift and effective aid to communities in crisis across South Africa and beyond.
+        </p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a asp-controller="Donation" asp-action="Index" class="btn btn-light btn-lg px-4">
+                ❤️ Donate Now
+            </a>
+            <a asp-controller="Volunteer" asp-action="Register" class="btn btn-outline-light btn-lg px-4">
+                🤝 Become a Volunteer
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- IMPACT STATS -->
+<div class="container my-5">
+    <div class="row text-center">
+        <div class="col-md-3 mb-3">
+            <div class="stat-card p-4 rounded shadow-sm">
+                <h2 class="text-danger fw-bold">1.2M+</h2>
+                <p class="text-muted mb-0">People Helped</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="stat-card p-4 rounded shadow-sm">
+                <h2 class="text-danger fw-bold">500+</h2>
+                <p class="text-muted mb-0">Relief Projects</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="stat-card p-4 rounded shadow-sm">
+                <h2 class="text-danger fw-bold">15K+</h2>
+                <p class="text-muted mb-0">Active Volunteers</p>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="stat-card p-4 rounded shadow-sm">
+                <h2 class="text-danger fw-bold">R50M+</h2>
+                <p class="text-muted mb-0">Funds Raised</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MISSION SECTION -->
+<div class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h2 class="fw-bold mb-3">Our Mission</h2>
+            <p class="lead">
+                The Gift of the Givers Foundation stands as a beacon of hope in times of crisis.
+            </p>
+            <p>
+                We are dedicated to providing swift and effective aid to communities struck by
+                natural disasters and emergencies in South Africa and beyond.
+            </p>
+            <ul class="list-unstyled">
+                <li class="mb-2">✅ Emergency food parcels for affected families</li>
+                <li class="mb-2">✅ Critical medical supplies to healthcare facilities</li>
+                <li class="mb-2">✅ Shelter materials for displaced communities</li>
+                <li class="mb-2">✅ Clean water and sanitation in crisis zones</li>
+                <li class="mb-2">✅ Volunteer coordination and deployment</li>
+            </ul>
+            <a asp-controller="Home" asp-action="About" class="btn text-white mt-2"
+               style="background-color: #8B0000;">
+                Learn More About Us
+            </a>
+        </div>
+        <div class="col-md-6">
+            <img src="~/images/mission.jpg" alt="South African community"
+                 class="img-fluid rounded shadow"
+                 style="width: 100%; max-height: 400px; object-fit: cover;" />
+        </div>
+    </div>
+</div>
+
+<!-- RECENT PROJECTS -->
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold mb-0">Active Relief Projects</h2>
+        <a asp-controller="Projects" asp-action="Index" class="btn btn-outline-dark">View All →</a>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm project-card">
+                <img src="~/images/projects/flood-relief.jpg" class="card-img-top"
+                     alt="Flood Relief" style="height: 180px; object-fit: cover;" />
+                <div class="card-body">
+                    <span class="badge text-white mb-2" style="background-color: #8B0000;">Critical</span>
+                    <h5 class="card-title">KZN Flood Relief</h5>
+                    <p class="text-muted small mb-2">📍 Durban, KZN</p>
+                    <p class="card-text">Emergency relief for flood-affected communities.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm project-card">
+                <img src="~/images/projects/drought-relief.jpg" class="card-img-top"
+                     alt="Drought Relief" style="height: 180px; object-fit: cover;" />
+                <div class="card-body">
+                    <span class="badge bg-warning text-dark mb-2">High</span>
+                    <h5 class="card-title">Eastern Cape Drought</h5>
+                    <p class="text-muted small mb-2">📍 Eastern Cape</p>
+                    <p class="card-text">Water delivery and agricultural support.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 shadow-sm project-card">
+                <img src="~/images/projects/fire-relief.jpg" class="card-img-top"
+                     alt="Fire Relief" style="height: 180px; object-fit: cover;" />
+                <div class="card-body">
+                    <span class="badge bg-warning text-dark mb-2">High</span>
+                    <h5 class="card-title">Gauteng Fire Relief</h5>
+                    <p class="text-muted small mb-2">📍 Johannesburg, GP</p>
+                    <p class="card-text">Shelter and food relief after fires.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CALL TO ACTION -->
+<div class="text-white text-center py-5" style="background-color: #8B0000;">
+    <div class="container">
+        <h2 class="mb-3">Your Support Saves Lives</h2>
+        <p class="lead mb-4">Every donation makes a difference. Every volunteer matters.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a asp-controller="Donation" asp-action="Index" class="btn btn-light btn-lg px-4">
+                Donate Today
+            </a>
+            <a asp-controller="Volunteer" asp-action="Register" class="btn btn-outline-light btn-lg px-4">
+                Volunteer Today
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .stat-card {
+        background: white;
+        border-top: 4px solid #8B0000;
+        transition: transform 0.2s;
+    }
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
+</style>

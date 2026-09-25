@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="container my-5">
+    <div class="text-center py-5">
+        <h1 class="display-1 text-danger fw-bold">⚠️</h1>
+        <h2 class="fw-bold mb-3">Something went wrong</h2>
+        <p class="lead text-muted">
+            We're sorry, but something unexpected happened.
+        </p>
+        <p class="text-muted">
+            Please try again or return to the homepage.
+        </p>
+        <div class="mt-4">
+            <a asp-controller="Home" asp-action="Index"
+               class="btn text-white btn-lg" style="background-color: #8B0000;">
+                🏠 Return Home
+            </a>
+            <a asp-controller="Home" asp-action="Contact"
+               class="btn btn-outline-dark btn-lg ms-2">
+                📞 Contact Support
+            </a>
+        </div>
+    </div>
+</div>

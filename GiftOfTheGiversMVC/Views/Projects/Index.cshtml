@@ -1,0 +1,70 @@
+﻿@model IEnumerable<GiftOfTheGiversMVC.Models.ReliefProject>
+
+@{
+    ViewData["Title"] = "Relief Projects";
+}
+
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">Our Relief Projects</h1>
+        <p class="lead text-muted">Active disaster relief operations across South Africa</p>
+    </div>
+
+    <div class="row">
+        @foreach (var project in Model)
+        {
+            var progressPercent = project.Budget > 0
+                ? (int)((project.AmountRaised / project.Budget) * 100)
+                : 0;
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm project-card">
+                    <img src="@project.ImageUrl" class="card-img-top"
+                         alt="@project.Name" style="height: 200px; object-fit: cover;" />
+                    <div class="card-header text-white d-flex justify-content-between align-items-center"
+                         style="background-color: #8B0000;">
+                        <span class="badge bg-light text-dark">@project.ProjectCode</span>
+                        <span class="badge bg-warning text-dark">@project.Severity</span>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">@project.Name</h5>
+                        <p class="text-muted small mb-2">📍 @project.Location</p>
+                        <p class="card-text">@project.Description</p>
+
+                        <div class="mb-2">
+                            <small class="text-muted">Funding Progress</small>
+                            <div class="progress" style="height: 20px;">
+                                <div class="progress-bar" role="progressbar"
+                                     style="width: @progressPercent%; background-color: #8B0000;"
+                                     aria-valuenow="@progressPercent" aria-valuemin="0" aria-valuemax="100">
+                                    @progressPercent%
+                                </div>
+                            </div>
+                            <small class="text-muted">
+                                R@(project.AmountRaised.ToString("N0")) raised of R@(project.Budget.ToString("N0"))
+                            </small>
+                        </div>
+
+                        <div class="mb-2">
+                            <small class="text-muted">Volunteers</small>
+                            <div class="progress" style="height: 20px;">
+                                <div class="progress-bar bg-info" role="progressbar"
+                                     style="width: @((project.VolunteerCount * 100) / project.VolunteerTarget)%">
+                                    @project.VolunteerCount / @project.VolunteerTarget
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2 mt-3">
+                            <a asp-action="Details" asp-route-id="@project.Id"
+                               class="btn btn-outline-dark btn-sm flex-fill">View Details</a>
+                            <a asp-controller="Donation" asp-action="Index"
+                               class="btn text-white btn-sm flex-fill"
+                               style="background-color: #8B0000;">Donate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
